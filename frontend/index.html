@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Design AI - Generate Stunning Posts</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🎨 Social Media Design AI</h1>
+                <p>Create stunning, AI-powered social media designs tailored to your business</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="form-container">
+                    <h2>Tell Us About Your Business</h2>
+                    <form id="designForm" class="design-form">
+                        <!-- Business Type -->
+                        <div class="form-group">
+                            <label for="businessType">Business Type *</label>
+                            <input
+                                type="text"
+                                id="businessType"
+                                placeholder="e.g., E-commerce Fashion, Tech Startup, Coffee Shop"
+                                required
+                            >
+                            <small>What type of business do you have?</small>
+                        </div>
+
+                        <!-- Business Description -->
+                        <div class="form-group">
+                            <label for="businessDescription">Business Description</label>
+                            <textarea
+                                id="businessDescription"
+                                placeholder="Briefly describe your business, products, or services..."
+                                rows="3"
+                            ></textarea>
+                            <small>This helps us create more targeted designs</small>
+                        </div>
+
+                        <!-- Target Audience -->
+                        <div class="form-group">
+                            <label for="targetAudience">Target Audience</label>
+                            <input
+                                type="text"
+                                id="targetAudience"
+                                placeholder="e.g., Young professionals, Eco-conscious millennials, Parents"
+                            >
+                            <small>Who is your ideal customer?</small>
+                        </div>
+
+                        <!-- Platform Selection -->
+                        <div class="form-group">
+                            <label for="platform">Social Platform *</label>
+                            <select id="platform" required>
+                                <option value="">Select a platform</option>
+                                <option value="instagram">Instagram (1080x1350px)</option>
+                                <option value="facebook">Facebook (1200x628px)</option>
+                                <option value="linkedin">LinkedIn (1200x627px)</option>
+                                <option value="twitter">Twitter/X (1024x512px)</option>
+                                <option value="tiktok">TikTok (1080x1920px)</option>
+                                <option value="pinterest">Pinterest (1000x1500px)</option>
+                                <option value="youtube">YouTube Thumbnail (1280x720px)</option>
+                            </select>
+                            <small>Choose where you'll post this design</small>
+                        </div>
+
+                        <!-- Post Type -->
+                        <div class="form-group">
+                            <label for="postType">Post Type</label>
+                            <select id="postType">
+                                <option value="feed-post">Feed Post</option>
+                                <option value="story">Story</option>
+                                <option value="carousel">Carousel</option>
+                                <option value="advertisement">Advertisement</option>
+                                <option value="banner">Banner</option>
+                                <option value="promo">Promotional</option>
+                            </select>
+                            <small>What type of post are you creating?</small>
+                        </div>
+
+                        <!-- Brand Colors -->
+                        <div class="form-group">
+                            <label>Brand Colors (Optional)</label>
+                            <div class="color-input-group">
+                                <div class="color-input">
+                                    <input type="color" id="color1" value="#3498db">
+                                    <small>Primary Color</small>
+                                </div>
+                                <div class="color-input">
+                                    <input type="color" id="color2" value="#2ecc71">
+                                    <small>Secondary Color</small>
+                                </div>
+                                <div class="color-input">
+                                    <input type="color" id="color3" value="#e74c3c">
+                                    <small>Accent Color</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Design Style -->
+                        <div class="form-group">
+                            <label for="style">Design Style</label>
+                            <div class="style-options">
+                                <label class="style-option">
+                                    <input type="radio" name="style" value="modern" checked>
+                                    <span>Modern</span>
+                                </label>
+                                <label class="style-option">
+                                    <input type="radio" name="style" value="minimalist">
+                                    <span>Minimalist</span>
+                                </label>
+                                <label class="style-option">
+                                    <input type="radio" name="style" value="playful">
+                                    <span>Playful</span>
+                                </label>
+                                <label class="style-option">
+                                    <input type="radio" name="style" value="professional">
+                                    <span>Professional</span>
+                                </label>
+                                <label class="style-option">
+                                    <input type="radio" name="style" value="vibrant">
+                                    <span>Vibrant</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary" id="generateBtn">
+                                <span class="btn-text">Generate Design</span>
+                                <span class="btn-loader" style="display: none;">
+                                    <span class="spinner"></span> Generating...
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="analyzeBtn">
+                                Analyze Business First
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Output Section -->
+            <section class="output-section" id="outputSection" style="display: none;">
+                <div class="output-container">
+                    <h2>Your Generated Design</h2>
+
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="preview">
+                            👁️ Preview
+                        </button>
+                        <button class="tab-btn" data-tab="code">
+                            💻 Code
+                        </button>
+                        <button class="tab-btn" data-tab="analysis">
+                            📊 Analysis
+                        </button>
+                        <button class="tab-btn" data-tab="details">
+                            ✨ Design Details
+                        </button>
+                    </div>
+
+                    <!-- Preview Tab -->
+                    <div class="tab-content active" id="preview">
+                        <div class="preview-container">
+                            <div id="designPreview" class="design-preview"></div>
+                        </div>
+                        <div class="preview-controls">
+                            <button class="btn btn-small" id="fullscreenBtn">🖥️ Fullscreen</button>
+                            <button class="btn btn-small" id="downloadBtn">⬇️ Download HTML</button>
+                        </div>
+                    </div>
+
+                    <!-- Code Tab -->
+                    <div class="tab-content" id="code">
+                        <div class="code-container">
+                            <div class="code-header">
+                                <h3>HTML & CSS Code</h3>
+                                <button class="btn btn-small" id="copyCodeBtn">📋 Copy Code</button>
+                            </div>
+                            <pre><code id="codeOutput"></code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Analysis Tab -->
+                    <div class="tab-content" id="analysis">
+                        <div class="analysis-container">
+                            <div id="analysisContent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Details Tab -->
+                    <div class="tab-content" id="details">
+                        <div class="details-container">
+                            <div id="detailsContent"></div>
+                        </div>
+                    </div>
+
+                    <!-- New Design Button -->
+                    <div class="button-group" style="margin-top: 20px;">
+                        <button type="button" class="btn btn-secondary" id="newDesignBtn">
+                            ← Back to Create New Design
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analysis Results Section -->
+            <section class="analysis-section" id="analysisSection" style="display: none;">
+                <div class="analysis-result-container">
+                    <h2>Business Analysis Results</h2>
+                    <div id="analysisResults"></div>
+                    <button class="btn btn-primary" id="proceedDesignBtn">
+                        Proceed to Design Generation
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by Claude AI | Social Media Design Generator v1.0</p>
+            <p>Create beautiful, professional designs in seconds</p>
+        </footer>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p id="loadingText">Generating your design...</p>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
